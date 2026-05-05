@@ -5,13 +5,14 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import Entypo from '@expo/vector-icons/Entypo';
 
-// Importação das suas telas
+// Importação das telas
 import Login from './Screens/Login';
 import Home from './Screens/Home';
 import Pessoas from './Screens/Pessoas';
 import ComponenteImagem from './components/ComponenteImagem' 
 import ExemploAsyncStorage from "./Async/ExemploAsyncStorage";
 import Exemplo2AsyncStorage from './Async/Exemplo2AsyncStorage';
+import Produtos from './Screens/Produtos';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -50,7 +51,12 @@ function TabNavigate() {
           )
         }}
       />
+
+      <Tab.Screen name="Produtos" component={Produtos} />
+
     </Tab.Navigator>
+
+    
   );
 }
 
@@ -59,7 +65,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Produtos" component={Produtos} />
         <Stack.Screen name="Home" component={TabNavigate} />
+
       </Stack.Navigator>      
     </NavigationContainer>
   );
